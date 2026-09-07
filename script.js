@@ -1,10 +1,10 @@
 /* =====================================================
    YORMAYN SIERRA INMOBILIARIA
    JAVASCRIPT PRINCIPAL
+   GALERÍAS OPTIMIZADAS
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
-
 
   /* =====================================================
      BUSCADOR DE PROPIEDADES
@@ -16,22 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const propiedades = document.getElementById("propiedades");
 
 
-  /*
-     OBTENER TODAS LAS PROPIEDADES
-
-     De esta manera, cada vez que agregues una nueva
-     .property-card al HTML, el contador la reconocerá
-     automáticamente.
-  */
-
   function getPropertyCards() {
     return [...document.querySelectorAll(".property-card")];
   }
 
-
-  /* =====================================================
-     ACTUALIZAR CONTADOR
-  ===================================================== */
 
   function updatePropertyCount(number) {
 
@@ -42,17 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  /*
-     MOSTRAR CANTIDAD TOTAL AL CARGAR LA PÁGINA
-
-     Ejemplo:
-
-     1 propiedad  → 1 inmueble
-     2 propiedades → 2 inmuebles
-     5 propiedades → 5 inmuebles
-     10 propiedades → 10 inmuebles
-  */
-
   function updateInitialCount() {
 
     const cards = getPropertyCards();
@@ -62,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =====================================================
-     BUSCAR PROPIEDADES
+     BUSCADOR
   ===================================================== */
 
   if (form) {
@@ -71,13 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       event.preventDefault();
 
-
-      /* OBTENER PROPIEDADES ACTUALES */
-
       const cards = getPropertyCards();
-
-
-      /* OBTENER FILTROS */
 
       const operationElement =
         document.getElementById("operation");
@@ -110,47 +81,40 @@ document.addEventListener("DOMContentLoaded", function () {
       let visible = 0;
 
 
-      /* =================================================
-         REVISAR CADA PROPIEDAD
-      ================================================= */
-
       cards.forEach(function (card) {
 
-
         const cardOperation =
-          (card.dataset.operation || "").trim().toLowerCase();
+          (card.dataset.operation || "")
+            .trim()
+            .toLowerCase();
 
 
         const cardType =
-          (card.dataset.type || "").trim().toLowerCase();
+          (card.dataset.type || "")
+            .trim()
+            .toLowerCase();
 
 
         const cardLocation =
-          (card.dataset.location || "").trim().toLowerCase();
+          (card.dataset.location || "")
+            .trim()
+            .toLowerCase();
 
-
-        /* COINCIDENCIA OPERACIÓN */
 
         const matchesOperation =
           !operation ||
           cardOperation === operation;
 
 
-        /* COINCIDENCIA TIPO */
-
         const matchesType =
           !type ||
           cardType === type;
 
 
-        /* COINCIDENCIA UBICACIÓN */
-
         const matchesLocation =
           !location ||
           cardLocation.includes(location);
 
-
-        /* RESULTADO FINAL */
 
         const show =
           matchesOperation &&
@@ -168,30 +132,19 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
 
-      /* =================================================
-         ACTUALIZAR CONTADOR
-      ================================================= */
-
       updatePropertyCount(visible);
 
-
-      /* =================================================
-         MOSTRAR / OCULTAR MENSAJE SIN RESULTADOS
-      ================================================= */
 
       if (noResults) {
         noResults.hidden = visible !== 0;
       }
 
 
-      /* =================================================
-         BAJAR HASTA LAS PROPIEDADES
-      ================================================= */
-
       if (propiedades) {
 
         propiedades.scrollIntoView({
-          behavior: "smooth"
+          behavior: "smooth",
+          block: "start"
         });
 
       }
@@ -202,17 +155,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =====================================================
-     CONTADOR INICIAL DE INMUEBLES
+     CONTADOR INICIAL
   ===================================================== */
 
   updateInitialCount();
 
 
   /* =====================================================
-     AÑO AUTOMÁTICO DEL FOOTER
+     AÑO DEL FOOTER
   ===================================================== */
 
-  const year = document.getElementById("year");
+  const year =
+    document.getElementById("year");
 
   if (year) {
 
@@ -223,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =====================================================
-     GALERÍAS DE FOTOS
+     GALERÍAS
   ===================================================== */
 
   const galleries =
@@ -232,28 +186,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   galleries.forEach(function (gallery) {
 
-
     const photos =
-      gallery.querySelectorAll(".gallery-img");
-
+      [...gallery.querySelectorAll(".gallery-img")];
 
     const previousButton =
       gallery.querySelector("[data-prev]");
 
-
     const nextButton =
       gallery.querySelector("[data-next]");
-
 
     const currentNumber =
       gallery.querySelector("[data-current]");
 
-
     const totalNumber =
       gallery.querySelector("[data-total]");
 
-
-    /* SI NO HAY FOTOS, NO CONTINUAR */
 
     if (!photos.length) {
       return;
@@ -264,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =================================================
-       TOTAL DE FOTOS
+       TOTAL
     ================================================= */
 
     if (totalNumber) {
@@ -276,28 +223,81 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =================================================
+       CARGAR FOTO
+    ================================================= */
+
+    function loadPhoto(photo) {
+
+      if (!photo) return;
+
+
+      /*
+         Si la imagen ya tiene src,
+         no hacemos nada.
+      */
+
+      if (photo.getAttribute("src")) {
+        return;
+      }
+
+
+      /*
+         Si usamos data-src,
+         lo convertimos en src.
+      */
+
+      const source =
+        photo.getAttribute("data-src");
+
+
+      if (source) {
+
+        photo.setAttribute("src", source);
+
+        photo.removeAttribute("data-src");
+
+      }
+
+    }
+
+
+    /* =================================================
        MOSTRAR FOTO
     ================================================= */
 
     function showPhoto(index) {
 
-
-      /* ASEGURAR QUE EL ÍNDICE SEA VÁLIDO */
-
       if (index < 0) {
-        index = photos.length - 1;
+
+        index =
+          photos.length - 1;
+
       }
 
 
       if (index >= photos.length) {
+
         index = 0;
+
       }
 
 
       currentIndex = index;
 
 
-      /* OCULTAR TODAS */
+      /*
+         Cargar solamente la foto
+         que se va a mostrar.
+      */
+
+      loadPhoto(
+        photos[currentIndex]
+      );
+
+
+      /*
+         Ocultar todas.
+      */
 
       photos.forEach(function (photo) {
 
@@ -306,12 +306,17 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
 
-      /* MOSTRAR FOTO ACTUAL */
+      /*
+         Mostrar actual.
+      */
 
-      photos[currentIndex].classList.add("active");
+      photos[currentIndex]
+        .classList.add("active");
 
 
-      /* ACTUALIZAR CONTADOR */
+      /*
+         Actualizar contador.
+      */
 
       if (currentNumber) {
 
@@ -324,71 +329,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =================================================
-       BOTÓN SIGUIENTE
+       SIGUIENTE
     ================================================= */
 
     if (nextButton) {
 
-      nextButton.addEventListener("click", function (event) {
+      nextButton.addEventListener(
+        "click",
+        function (event) {
 
-        event.preventDefault();
-        event.stopPropagation();
+          event.preventDefault();
+          event.stopPropagation();
 
-
-        currentIndex++;
-
-
-        if (currentIndex >= photos.length) {
-
-          currentIndex = 0;
+          showPhoto(
+            currentIndex + 1
+          );
 
         }
-
-
-        showPhoto(currentIndex);
-
-      });
+      );
 
     }
 
 
     /* =================================================
-       BOTÓN ANTERIOR
+       ANTERIOR
     ================================================= */
 
     if (previousButton) {
 
-      previousButton.addEventListener("click", function (event) {
+      previousButton.addEventListener(
+        "click",
+        function (event) {
 
-        event.preventDefault();
-        event.stopPropagation();
+          event.preventDefault();
+          event.stopPropagation();
 
-
-        currentIndex--;
-
-
-        if (currentIndex < 0) {
-
-          currentIndex =
-            photos.length - 1;
+          showPhoto(
+            currentIndex - 1
+          );
 
         }
-
-
-        showPhoto(currentIndex);
-
-      });
+      );
 
     }
 
 
     /* =================================================
-       MOSTRAR PRIMERA FOTO
+       PRIMERA FOTO
     ================================================= */
 
     showPhoto(0);
 
   });
-
 
 });
