@@ -1,7 +1,6 @@
 /* =====================================================
    YORMAYN SIERRA INMOBILIARIA
    JAVASCRIPT PRINCIPAL
-   GALERÍAS OPTIMIZADAS
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -154,25 +153,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  /* =====================================================
-     CONTADOR INICIAL
-  ===================================================== */
-
   updateInitialCount();
 
 
   /* =====================================================
-     AÑO DEL FOOTER
+     AÑO AUTOMÁTICO
   ===================================================== */
 
-  const year =
-    document.getElementById("year");
+  const year = document.getElementById("year");
 
   if (year) {
-
-    year.textContent =
-      new Date().getFullYear();
-
+    year.textContent = new Date().getFullYear();
   }
 
 
@@ -189,14 +180,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const photos =
       [...gallery.querySelectorAll(".gallery-img")];
 
+
     const previousButton =
       gallery.querySelector("[data-prev]");
+
 
     const nextButton =
       gallery.querySelector("[data-next]");
 
+
     const currentNumber =
       gallery.querySelector("[data-current]");
+
 
     const totalNumber =
       gallery.querySelector("[data-total]");
@@ -211,7 +206,76 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =================================================
-       TOTAL
+       CARGAR IMAGEN
+    ================================================= */
+
+    function loadPhoto(photo) {
+
+      if (!photo) return;
+
+
+      /*
+         Si ya tiene src real, no hacemos nada.
+      */
+
+      if (photo.dataset.loaded === "true") {
+        return;
+      }
+
+
+      const source =
+        photo.dataset.src;
+
+
+      if (!source) {
+
+        photo.dataset.loaded = "true";
+
+        return;
+
+      }
+
+
+      /*
+         Crear una nueva imagen para comprobar
+         que realmente existe antes de mostrarla.
+      */
+
+      const testImage = new Image();
+
+
+      testImage.onload = function () {
+
+        photo.src = source;
+
+        photo.dataset.loaded = "true";
+
+        photo.classList.remove("image-error");
+
+      };
+
+
+      testImage.onerror = function () {
+
+        photo.dataset.loaded = "true";
+
+        photo.classList.add("image-error");
+
+        console.warn(
+          "No se pudo cargar la imagen:",
+          source
+        );
+
+      };
+
+
+      testImage.src = source;
+
+    }
+
+
+    /* =================================================
+       TOTAL AUTOMÁTICO
     ================================================= */
 
     if (totalNumber) {
@@ -223,62 +287,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =================================================
-       CARGAR FOTO
-    ================================================= */
-
-    function loadPhoto(photo) {
-
-      if (!photo) return;
-
-
-      /*
-         Si la imagen ya tiene src,
-         no hacemos nada.
-      */
-
-      if (photo.getAttribute("src")) {
-        return;
-      }
-
-
-      /*
-         Si usamos data-src,
-         lo convertimos en src.
-      */
-
-      const source =
-        photo.getAttribute("data-src");
-
-
-      if (source) {
-
-        photo.setAttribute("src", source);
-
-        photo.removeAttribute("data-src");
-
-      }
-
-    }
-
-
-    /* =================================================
        MOSTRAR FOTO
     ================================================= */
 
     function showPhoto(index) {
 
       if (index < 0) {
-
-        index =
-          photos.length - 1;
-
+        index = photos.length - 1;
       }
 
 
       if (index >= photos.length) {
-
         index = 0;
-
       }
 
 
@@ -286,17 +306,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
       /*
-         Cargar solamente la foto
-         que se va a mostrar.
-      */
-
-      loadPhoto(
-        photos[currentIndex]
-      );
-
-
-      /*
-         Ocultar todas.
+         Ocultar todas las imágenes.
       */
 
       photos.forEach(function (photo) {
@@ -307,11 +317,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
       /*
-         Mostrar actual.
+         Cargar la foto actual.
       */
 
-      photos[currentIndex]
-        .classList.add("active");
+      loadPhoto(photos[currentIndex]);
+
+
+      /*
+         También precargar la siguiente
+         y la anterior para que el cambio
+         sea mucho más rápido.
+      */
+
+      const nextIndex =
+        (currentIndex + 1) % photos.length;
+
+
+      const previousIndex =
+        (currentIndex - 1 + photos.length) %
+        photos.length;
+
+
+      loadPhoto(photos[nextIndex]);
+
+      loadPhoto(photos[previousIndex]);
+
+
+      /*
+         Mostrar imagen actual.
+      */
+
+      photos[currentIndex].classList.add("active");
 
 
       /*
@@ -334,19 +370,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (nextButton) {
 
-      nextButton.addEventListener(
-        "click",
-        function (event) {
+      nextButton.addEventListener("click", function (event) {
 
-          event.preventDefault();
-          event.stopPropagation();
+        event.preventDefault();
+        event.stopPropagation();
 
-          showPhoto(
-            currentIndex + 1
-          );
+        showPhoto(currentIndex + 1);
 
-        }
-      );
+      });
 
     }
 
@@ -357,29 +388,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (previousButton) {
 
-      previousButton.addEventListener(
-        "click",
-        function (event) {
+      previousButton.addEventListener("click", function (event) {
 
-          event.preventDefault();
-          event.stopPropagation();
+        event.preventDefault();
+        event.stopPropagation();
 
-          showPhoto(
-            currentIndex - 1
-          );
+        showPhoto(currentIndex - 1);
 
-        }
-      );
+      });
 
     }
 
 
     /* =================================================
-       PRIMERA FOTO
+       INICIALIZAR
     ================================================= */
 
     showPhoto(0);
 
   });
+
 
 });
