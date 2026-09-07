@@ -1,0 +1,1650 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Yormayn Sierra Inmobiliaria — compra, venta y arriendo de inmuebles.">
+
+  <title>Yormayn Sierra Inmobiliaria</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- WHATSAPP FLOTANTE -->
+
+<a class="whatsapp-float"
+   href="https://wa.me/573176006453"
+   target="_blank"
+   rel="noopener"
+   aria-label="Contactar por WhatsApp">
+
+  <img src="assets/logo whatsapp.jpg"
+       alt="WhatsApp">
+
+</a>
+
+  <!-- =====================================================
+       BARRA SUPERIOR
+  ====================================================== -->
+
+  <header class="topbar">
+
+    <a class="brand"
+       href="#inicio"
+       aria-label="Yormayn Sierra Inmobiliaria">
+
+      <img src="assets/logo.jpg"
+           alt="Logo Yormayn Sierra Inmobiliaria">
+
+      <span>
+        Yormayn Sierra<br>
+        <small>Inmobiliaria</small>
+      </span>
+
+    </a>
+
+
+    <nav>
+
+      <a href="#propiedades">Propiedades</a>
+
+      <a href="#servicios">Servicios</a>
+
+      <a href="#nosotros">Nosotros</a>
+
+      <a class="nav-cta"
+         href="#contacto">
+        Contactar
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =====================================================
+       REDES SOCIALES
+  ====================================================== -->
+
+  <section id="topBar">
+
+  <div class="container-fluid">
+
+    <div class="area-bar auto_margin">
+
+      <div class="redes">
+
+        <ul class="follow">
+
+          <!-- FACEBOOK -->
+          <li>
+            <a href="https://www.facebook.com/profile.php?id=100088875960070"
+               target="_blank"
+               rel="noopener"
+               title="Facebook">
+
+              <img src="assets/logo facebook.jpg"
+                   alt="Facebook">
+
+              <span>Facebook</span>
+
+            </a>
+          </li>
+
+
+          <!-- INSTAGRAM -->
+          <li>
+            <a href="https://www.instagram.com/yormaynsierrainmobiliaria/"
+               target="_blank"
+               rel="noopener"
+               title="Instagram">
+
+              <img src="assets/logo instagram.jpg"
+                   alt="Instagram">
+
+              <span>Instagram</span>
+
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+        <div class="google-lang">
+
+          <div id="google_translate_element"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       INICIO
+  ====================================================== -->
+
+  <main id="inicio">
+
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section class="hero">
+
+      <div class="hero-copy">
+
+        <p class="eyebrow">
+    
+        </p>
+
+        <h1>
+          Encuentra el lugar donde empieza tu próxima historia.
+        </h1>
+
+        <p class="hero-text">
+          Te acompañamos en la compra, venta y arriendo de inmuebles
+          con atención cercana y asesoría durante todo el proceso.
+        </p>
+
+
+        <div class="hero-actions">
+
+          <a class="btn primary"
+             href="#propiedades">
+            Ver propiedades
+          </a>
+
+          <a class="btn secondary"
+             href="#contacto">
+            Quiero vender o arrendar
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-card">
+
+        <div class="hero-logo-wrap">
+
+          <img src="assets/logo.jpg"
+               alt="Yormayn Sierra Inmobiliaria">
+
+        </div>
+
+        <p>
+          Asesoría inmobiliaria con confianza,
+          claridad y acompañamiento.
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         BUSCADOR
+    ====================================================== -->
+
+    <section class="search-section">
+
+      <div>
+
+        <p class="eyebrow">
+          BUSCA TU INMUEBLE
+        </p>
+
+        <h2>
+          ¿Qué estás buscando?
+        </h2>
+
+      </div>
+
+
+      <form id="propertySearch"
+            class="search-grid">
+
+        <select id="operation">
+
+          <option value="">
+            Operación
+          </option>
+
+          <option value="Comprar">
+            Comprar
+          </option>
+
+          <option value="Arrendar">
+            Arrendar
+          </option>
+
+        </select>
+
+
+        <select id="type">
+
+          <option value="">
+            Tipo de inmueble
+          </option>
+
+          <option value="Casa">
+            Casa
+          </option>
+
+          <option value="Apartamento">
+            Apartamento
+          </option>
+
+          <option value="Lote">
+            Lote
+          </option>
+
+          <option value="Finca">
+            Finca
+          </option>
+
+        </select>
+
+
+        <input id="location"
+               type="text"
+               placeholder="Ciudad o zona">
+
+
+        <button class="btn primary"
+                type="submit">
+
+          Buscar
+
+        </button>
+
+      </form>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PROPIEDADES
+    ====================================================== -->
+
+    <section id="propiedades"
+             class="section">
+
+
+      <div class="section-heading">
+
+        <div>
+
+          <p class="eyebrow">
+            INMUEBLES DESTACADOS
+          </p>
+
+          <h2>
+            INMUEBLES
+          </h2>
+
+        </div>
+
+
+        <span id="resultCount" class="result-count"></span>
+
+      </div>
+
+
+
+      <!-- =================================================
+           MUY IMPORTANTE:
+           TODAS LAS PROPIEDADES ESTÁN DENTRO DEL GRID
+      ================================================== -->
+
+      <div id="propertyGrid"
+           class="property-grid">
+
+
+        <!-- =================================================
+             PROPIEDAD 1 — LOTE # 3
+        ================================================== -->
+
+        <article class="property-card"
+                 data-operation="Comprar"
+                 data-type="Lote"
+                 data-location="Riofrio">
+
+
+          <!-- GALERÍA LOTE # 3 -->
+
+          <div class="property-image gallery"
+               data-gallery>
+
+
+            <!-- FOTO 1 -->
+
+            <img src="assets/lote 2/publicar lote 2.png"
+                 class="gallery-img"
+                 alt="Publicación lote 2">
+
+
+            <!-- FOTO 2 -->
+
+            <img src="assets/lote 2/specta_specta_20260827_130948_0_1787854782728_photo_optimized.jpg"
+                 class="gallery-img"
+                 alt="Lote 2">
+
+
+            <!-- FOTO 3 -->
+
+            <img src="assets/lote 2/specta_specta_20260827_131044_0_1787854779149_photo_optimized.jpg"
+                 class="gallery-img"
+                 alt="Lote 2">
+
+
+            <!-- FOTO 4 -->
+
+            <img src="assets/lote 2/specta_specta_20260827_131326_0_1787854769090_photo_optimized.jpg"
+                 class="gallery-img"
+                 alt="Lote 2">
+
+
+            <!-- FOTO 5 -->
+
+            <img src="assets/lote 2/specta_specta_20260827_131354_0_1787854762961_photo_optimized.jpg"
+                 class="gallery-img"
+                 alt="Lote 2">
+
+
+            <!-- FOTO 6 -->
+
+            <img src="assets/lote 2/specta_specta_20260827_131512_0_1787854756424_photo_optimized.jpg"
+                 class="gallery-img"
+                 alt="Lote 2">
+
+
+            <!-- FOTO 7 -->
+
+            <img src="assets/lote 2/SPT_0299.jpg"
+                 class="gallery-img"
+                 alt="Lote 2">
+
+
+            <!-- FOTO 8 -->
+
+            <img src="assets/lote 2/SPT_0302.jpg"
+                 class="gallery-img"
+                 alt="Lote 2">
+
+
+            <!-- FOTO 9 -->
+
+            <img src="assets/lote 2/SPT_0303.jpg"
+                 class="gallery-img"
+                 alt="Lote 2">
+
+
+            <!-- FOTO 10 -->
+
+            <img src="assets/lote 2/SPT_0306.jpg"
+                 class="gallery-img"
+                 alt="Lote 2">
+
+
+            <!-- FOTO 11 -->
+
+            <img src="assets/lote 2/SPT_0307.jpg"
+                 class="gallery-img"
+                 alt="Lote 2">
+
+
+            <!-- FOTO 12 -->
+
+            <img src="assets/lote 2/SPT_0308.jpg"
+                 class="gallery-img"
+                 alt="Lote 2">
+
+
+            <!-- FOTO 13 -->
+
+            <img src="assets/lote 2/SPT_0309.jpg"
+                 class="gallery-img"
+                 alt="Lote 2">
+
+
+            <!-- FOTO 14 -->
+
+            <img src="assets/lote 2/SPT_0310.jpg"
+                 class="gallery-img"
+                 alt="Lote 2">
+
+
+            <!-- FOTO 15 -->
+
+            <img src="assets/lote 2/Vista a occidente.jpg"
+                 class="gallery-img"
+                 alt="Vista a occidente">
+
+
+            <!-- FOTO 16 -->
+
+            <img src="assets/lote 2/vista aerea a oriente.jpg"
+                 class="gallery-img"
+                 alt="Vista aérea a oriente">
+
+
+
+            <!-- BOTÓN ANTERIOR -->
+
+            <button type="button"
+                    class="gallery-btn gallery-prev"
+                    data-prev
+                    aria-label="Fotografía anterior">
+
+              ❮
+
+            </button>
+
+
+
+            <!-- BOTÓN SIGUIENTE -->
+
+            <button type="button"
+                    class="gallery-btn gallery-next"
+                    data-next
+                    aria-label="Fotografía siguiente">
+
+              ❯
+
+            </button>
+
+
+
+            <!-- CONTADOR -->
+
+            <div class="gallery-counter">
+
+              <span data-current>
+                1
+              </span>
+
+              /
+
+              <span data-total>
+                16
+              </span>
+
+            </div>
+
+
+          </div>
+
+
+
+          <!-- INFORMACIÓN -->
+
+          <div class="property-body">
+
+            <span class="tag">
+              Venta
+            </span>
+
+            <h3>
+              Lote de 850 m²
+            </h3>
+
+            <p class="location">
+              📍 Riofrio Occidental
+            </p>
+
+            <div class="features">
+
+              <span>
+                📐 850 m²
+              </span>
+
+              <span>
+                🚗 Acceso vehicular
+              </span>
+
+              <span>
+                🏡 Conjunto cerrado
+              </span>
+
+            </div>
+
+
+            <div class="property-footer">
+
+  <strong>
+    $ 330.000.000
+  </strong>
+
+  <div class="property-media-buttons">
+
+    <!-- VIDEO YOUTUBE -->
+    <a href="https://youtube.com/shorts/ciQTPzET_PE?feature=share"
+       class="media-btn youtube-btn"
+       target="_blank"
+       rel="noopener"
+       title="Ver video del Lote #2">
+
+      <img src="assets/logo youtube.jpg"
+           alt="Ver video en YouTube">
+    </a>
+
+    <!-- TOUR VIRTUAL 360° -->
+    <!-- Cuando tengas el enlace, reemplaza # por la URL -->
+    <a href="#"
+       class="media-btn tour-btn"
+       title="Tour virtual 360°">
+
+      <img src="assets/logotourvirtual.jpg"
+           alt="Tour virtual 360°">
+           </a>
+      </div>
+</article>
+
+
+        <!-- =================================================
+             PROPIEDAD 2 — LOTE 600 MTS
+        ================================================== -->
+
+        <article class="property-card"
+                 data-operation="Comprar"
+                 data-type="Lote"
+                 data-location="Riofrio">
+
+
+          <!-- GALERÍA LOTE 600 MTS -->
+
+          <div class="property-image gallery"
+               data-gallery>
+
+
+            <!-- FOTO 1 -->
+
+            <img src="assets/lote 600 mts/PUBLICAR LOTE 600.png"
+                 class="gallery-img"
+                 alt="PUBLICAR LOTE 600">
+
+
+            <!-- FOTO 2 -->
+
+            <img src="assets/lote 600 mts/SPT_0286.JPG"
+                 class="gallery-img"
+                 alt="Lote 600 mts">
+
+
+            <!-- FOTO 3 -->
+
+            <img src="assets/lote 600 mts/SPT_0287.JPG"
+                 class="gallery-img"
+                 alt="Lote 600 mts">
+
+
+            <!-- FOTO 4 -->
+
+            <img src="assets/lote 600 mts/SPT_0288.JPG"
+                 class="gallery-img"
+                 alt="Lote 600 mts">
+
+
+            <!-- FOTO 5 -->
+
+            <img src="assets/lote 600 mts/SPT_0289.JPG"
+                 class="gallery-img"
+                 alt="Lote 600 mts">
+
+
+            <!-- FOTO 6 -->
+
+            <img src="assets/lote 600 mts/SPT_0290.JPG"
+                 class="gallery-img"
+                 alt="Lote 600 mts">
+
+
+            <!-- FOTO 7 -->
+
+            <img src="assets/lote 600 mts/SPT_0291.JPG"
+                 class="gallery-img"
+                 alt="Lote 600 mts">
+
+
+            <!-- FOTO 8 -->
+
+            <img src="assets/lote 600 mts/SPT_0292.JPG"
+                 class="gallery-img"
+                 alt="Lote 600 mts">
+
+
+            <!-- FOTO 9 -->
+
+            <img src="assets/lote 600 mts/SPT_0293.JPG"
+                 class="gallery-img"
+                 alt="Lote 600 mts">
+
+
+            <!-- FOTO 10 -->
+
+            <img src="assets/lote 600 mts/SPT_0294.JPG"
+                 class="gallery-img"
+                 alt="Lote 600 mts">
+
+
+            <!-- FOTO 11 -->
+
+            <img src="assets/lote 600 mts/SPT_0295.JPG"
+                 class="gallery-img"
+                 alt="Lote 600 mts">
+
+
+            <!-- FOTO 12 -->
+
+            <img src="assets/lote 600 mts/SPT_0296.JPG"
+                 class="gallery-img"
+                 alt="Lote 600">
+
+
+            <!-- FOTO 13 -->
+
+            <img src="assets/lote 600 mts/SPT_0297.JPG"
+                 class="gallery-img"
+                 alt="Lote 600 mts">
+
+
+            <!-- BOTÓN ANTERIOR -->
+
+            <button type="button"
+                    class="gallery-btn gallery-prev"
+                    data-prev
+                    aria-label="Fotografía anterior">
+
+              ❮
+
+            </button>
+
+
+
+            <!-- BOTÓN SIGUIENTE -->
+
+            <button type="button"
+                    class="gallery-btn gallery-next"
+                    data-next
+                    aria-label="Fotografía siguiente">
+
+              ❯
+
+            </button>
+
+
+
+            <!-- CONTADOR -->
+
+            <div class="gallery-counter">
+
+              <span data-current>
+                1
+              </span>
+
+              /
+
+              <span data-total>
+                13
+              </span>
+
+            </div>
+
+
+          </div>
+
+
+
+          <!-- INFORMACIÓN -->
+
+          <div class="property-body">
+
+            <span class="tag">
+              Venta
+            </span>
+
+            <h3>
+              Lote de 600 m²
+            </h3>
+
+            <p class="location">
+              📍 Riofrio Oriental
+            </p>
+
+            <div class="features">
+
+              <span>
+                📐 600 m²
+              </span>
+
+              <span>
+                🚗 Acceso vehicular
+              </span>
+
+              <span>
+                🏡 Terreno plano con estructura para construir en modular
+              </span>
+
+            </div>
+
+
+            <div class="property-footer">
+
+  <strong>
+    $ 280.000.000
+  </strong>
+
+  <div class="property-media-buttons">
+
+    <!-- VIDEO YOUTUBE -->
+    <a href="https://www.youtube.com/shorts/wiR_LfX00yM"
+       class="media-btn youtube-btn"
+       target="_blank"
+       rel="noopener"
+       title="Ver video del Lote 600 mts">
+
+      <img src="assets/logo youtube.jpg"
+           alt="Ver video en YouTube">
+    </a>
+
+    <!-- TOUR VIRTUAL 360° -->
+    <!-- Cuando tengas el enlace, reemplaza # por la URL -->
+    <a href="https://yormaynsierra.github.io/VENTA-LOTE-PLANO-600-MTS---Riofrio-Oriental-Sector-San-Isidro---TABIO/"
+       class="media-btn tour-btn"
+       title="Tour virtual 360°">
+
+      <img src="assets/logotourvirtual.jpg"
+           alt="Tour virtual 360°">
+           </a>
+      </div>
+</article>
+
+
+
+<!-- =================================================
+             PROPIEDAD 3 — CASA
+        ================================================== -->
+
+        <article class="property-card"
+                 data-operation="Comprar"
+                 data-type="Casa"
+                 data-location="Riofrio">
+
+
+          <!-- GALERÍA CASA -->
+
+          <div class="property-image gallery"
+               data-gallery>
+
+
+            <!-- FOTO 1 -->
+
+            <img src="assets/Casa German peña/SPT_0205.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+
+            <!-- FOTO 2 -->
+            <img src="assets/Casa German peña/1.jpeg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+
+            <!-- FOTO 3 -->
+            <img src="assets/Casa German peña/10.jpeg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+
+            <!-- FOTO 4 -->
+            <img src="assets/Casa German peña/11.jpeg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+
+            <!-- FOTO 5 -->
+            <img src="assets/Casa German peña/2.jpeg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+            <!-- FOTO 6 -->
+            <img src="assets/Casa German peña/3.jpeg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+
+            <!-- FOTO 7 -->
+            <img src="assets/Casa German peña/4.jpeg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+
+            <!-- FOTO 8 -->
+            <img src="assets/Casa German peña/5.jpeg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+            <!-- FOTO 9 -->
+            <img src="assets/Casa German peña/6.jpeg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+            <!-- FOTO 10 -->
+            <img src="assets/Casa German peña/7.jpeg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+            <!-- FOTO 11 -->
+            <img src="assets/Casa German peña/8.jpeg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+            <!-- FOTO 12 -->
+            <img src="assets/Casa German peña/9.jpeg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+            <!-- FOTO 13 -->
+            <img src="assets/Casa German peña/_MG_0326.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+
+            <!-- FOTO 14 -->
+            <img src="assets/Casa German peña/_MG_0327.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+
+            <!-- FOTO 15 -->
+            <img src="assets/Casa German peña/_MG_0328.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+
+            <!-- FOTO 16 -->
+            <img src="assets/Casa German peña/_MG_0329.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+            <!-- FOTO 17 -->
+            <img src="assets/Casa German peña/_MG_0330.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 18 -->
+            <img src="assets/Casa German peña/_MG_0331.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+            <!-- FOTO 18 -->
+            <img src="assets/Casa German peña/_MG_0332.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+ 
+                 <!-- FOTO 19 -->
+            <img src="assets/Casa German peña/_MG_0333.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 20 -->
+            <img src="assets/Casa German peña/_MG_0334.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+  
+                 <!-- FOTO 21 -->
+            <img src="assets/Casa German peña/_MG_0336.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+   
+                 <!-- FOTO 22 -->
+            <img src="assets/Casa German peña/_MG_0337.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 23 -->
+            <img src="assets/Casa German peña/_MG_0338.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 24 -->
+            <img src="assets/Casa German peña/_MG_0339.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+          
+                 <!-- FOTO 25 -->
+            <img src="assets/Casa German peña/_MG_0340.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+         
+           <!-- FOTO 26 -->
+            <img src="assets/Casa German peña/Dron 1.jpg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 27 -->
+            <img src="assets/Casa German peña/Dron 2.jpg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 28 -->
+            <img src="assets/Casa German peña/Dron 3.jpg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 29 -->
+            <img src="assets/Casa German peña/Dron 4.jpg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 30 -->
+            <img src="assets/Casa German peña/Dron 5.jpg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+          
+               <!-- FOTO 31 -->
+            <img src="assets/Casa German peña/Dron 6.jpg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 32 -->
+            <img src="assets/Casa German peña/Dron 7.jpg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+          
+                 <!-- FOTO 33 -->
+            <img src="assets/Casa German peña/Dron.jpg"
+                 class="gallery-img"
+                 alt="Casa German peña">
+        
+                 <!-- FOTO 34 -->
+            <img src="assets/Casa German peña/SPT_0188.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+        
+            <!-- FOTO 35 -->
+            <img src="assets/Casa German peña/SPT_0189.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+             <!-- FOTO 36 -->
+            <img src="assets/Casa German peña/SPT_0190.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 37 -->
+            <img src="assets/Casa German peña/SPT_0191.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 38 -->
+            <img src="assets/Casa German peña/SPT_0192.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 39 -->
+            <img src="assets/Casa German peña/SPT_0193.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 40 -->
+            <img src="assets/Casa German peña/SPT_0194.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 41 -->
+            <img src="assets/Casa German peña/SPT_0195.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 42 -->
+            <img src="assets/Casa German peña/SPT_0196.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 43 -->
+            <img src="assets/Casa German peña/SPT_0197.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 44 -->
+            <img src="assets/Casa German peña/SPT_0198.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                  <!-- FOTO 45 -->
+            <img src="assets/Casa German peña/SPT_0199.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                  <!-- FOTO 46 -->
+            <img src="assets/Casa German peña/SPT_0200.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                  <!-- FOTO 47 -->
+            <img src="assets/Casa German peña/SPT_0201.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                  <!-- FOTO 48 -->
+            <img src="assets/Casa German peña/SPT_0202.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                  <!-- FOTO 49 -->
+            <img src="assets/Casa German peña/SPT_0203.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                  <!-- FOTO 50 -->
+            <img src="assets/Casa German peña/SPT_0209.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                  <!-- FOTO 51 -->
+            <img src="assets/Casa German peña/SPT_0204.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+ 
+                 <!-- FOTO 52 -->
+            <img src="assets/Casa German peña/SPT_0206.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+                 <!-- FOTO 53 -->
+            <img src="assets/Casa German peña/SPT_0207.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+             <!-- FOTO 54 -->
+            <img src="assets/Casa German peña/SPT_0208.JPG"
+                 class="gallery-img"
+                 alt="Casa German peña">
+         <!-- FOTO 55 -->
+            <img src="assets/Casa German peña/Lote German.png"
+                 class="gallery-img"
+                 alt="Casa German peña">
+
+
+            <!-- BOTÓN ANTERIOR -->
+
+            <button type="button"
+                    class="gallery-btn gallery-prev"
+                    data-prev
+                    aria-label="Fotografía anterior">
+
+              ❮
+
+            </button>
+
+
+
+            <!-- BOTÓN SIGUIENTE -->
+
+            <button type="button"
+                    class="gallery-btn gallery-next"
+                    data-next
+                    aria-label="Fotografía siguiente">
+
+              ❯
+
+            </button>
+
+
+
+            <!-- CONTADOR -->
+
+            <div class="gallery-counter">
+
+              <span data-current>
+                1
+              </span>
+
+              /
+
+              <span data-total>
+                55
+              </span>
+
+            </div>
+
+
+          </div>
+
+
+
+          <!-- INFORMACIÓN -->
+
+          <div class="property-body">
+
+            <span class="tag">
+              Venta
+            </span>
+
+            <h3>
+              CASA DE 2 PISOS 110 MTS Terreno de 945m²
+            </h3>
+
+            <p class="location">
+              📍 Riofrio Oriental
+            </p>
+
+            <div class="features">
+
+              <span>
+                📐 945 m²
+              </span>
+
+              <span>
+                🚗 Vía con buen acceso vehicular
+              </span>
+
+              <span>
+                🏡 Casa de 110 mts2 + Cabaña de 49 mts2
+              </span>
+
+            </div>
+
+
+            <div class="property-footer">
+
+  <strong>
+    $ 550.000.000 Negociables
+  </strong>
+
+  <div class="property-media-buttons">
+
+    <!-- VIDEO YOUTUBE -->
+    <!-- Cuando tengas el enlace, reemplaza # por la URL -->
+    <a href="#"
+       class="media-btn youtube-btn"
+       target="_blank"
+       rel="noopener"
+       title="Ver video del Lote #2">
+
+      <img src="assets/logo youtube.jpg"
+           alt="Ver video en YouTube">
+    </a>
+
+    <!-- TOUR VIRTUAL 360° -->
+    <!-- Cuando tengas el enlace, reemplaza # por la URL -->
+    <a href="https://yormaynsierra.github.io/ARRIENDO-CASA-RURAL-de-2-pisos-110Mts-Terreno-425mts---TABIO/"
+       class="media-btn tour-btn"
+       title="Tour virtual 360°">
+
+      <img src="assets/logotourvirtual.jpg"
+           alt="Tour virtual 360°">
+           </a>
+      </div>
+</article>
+
+
+        <!-- =================================================
+             PROPIEDAD 4 — LOTE # 2
+        ================================================== -->
+
+        <article class="property-card"
+                 data-operation="Comprar"
+                 data-type="Lote"
+                 data-location="Riofrio Occidental">
+
+
+          <!-- GALERÍA LOTE # 2 -->
+
+          <div class="property-image gallery"
+               data-gallery>
+
+
+            <!-- FOTO 1 -->
+            <img src="assets/Lote 3/publicar lote 3.png.png"
+                 class="gallery-img"
+                 alt="Publicación lote 3">
+
+
+            <!-- FOTO 2 -->
+
+            <img src="assets/Lote 3/Dron 1.jpg.jpg"
+                 class="gallery-img"
+                 alt="Lote 2">
+
+
+            <!-- FOTO 3 -->
+            <img src="assets/Lote 3/Dron 2.jpg.jpg"
+                 class="gallery-img"
+                 alt="Lote 3">
+
+
+            <!-- FOTO 4 -->
+            <img src="assets/Lote 3/Dron 3.jpg"
+                 class="gallery-img"
+                 alt="Lote 3">
+
+
+            <!-- FOTO 5 -->
+            <img src="assets/Lote 3/Dron 4.jpg.jpg"
+                 class="gallery-img"
+                 alt="Lote 3">
+
+
+            <!-- FOTO 6 -->
+            <img src="assets/Lote 3/Dron 5.jpg"
+                 class="gallery-img"
+                 alt="Lote 3">
+
+
+            <!-- FOTO 7 -->
+            <img src="assets/Lote 3/Dron 6.jpg.jpg"
+                 class="gallery-img"
+                 alt="Lote 2">
+
+
+            <!-- FOTO 8 -->
+            <img src="assets/Lote 3/Dron.jpg"
+                 class="gallery-img"
+                 alt="Lote 3">
+
+
+            <!-- FOTO 9 -->
+            <img src="assets/Lote 3/SPT_0300.jpg"
+                 class="gallery-img"
+                 alt="Lote 3">
+
+
+            <!-- FOTO 10 -->
+            <img src="assets/Lote 3/SPT_0304.jpg"
+                 class="gallery-img"
+                 alt="Lote 3">
+
+            <!-- FOTO 11 -->
+            <img src="assets/Lote 3/SPT_0311.jpg"
+                 class="gallery-img"
+                 alt="Lote 3">
+
+
+            <!-- FOTO 12 -->
+            <img src="assets/Lote 3/SPT_0312.jpg"
+                 class="gallery-img"
+                 alt="Lote 3">
+
+
+            <!-- FOTO 13 -->
+            <img src="assets/Lote 3/SPT_0313.jpg"
+                 class="gallery-img"
+                 alt="Lote 3">
+
+
+            <!-- FOTO 14 -->
+            <img src="assets/Lote 3/SPT_0314.jpg"
+                 class="gallery-img"
+                 alt="Lote 3">
+
+
+            <!-- FOTO 15 -->
+            <img src="assets/Lote 3/Vista a occidente.jpg"
+                 class="gallery-img"
+                 alt="Vista a occidente">
+
+
+            <!-- FOTO 16 -->
+            <img src="assets/Lote 3/vista aerea a oriente.jpg"
+                 class="gallery-img"
+                 alt="Vista aérea a oriente">
+
+
+
+            <!-- BOTÓN ANTERIOR -->
+
+            <button type="button"
+                    class="gallery-btn gallery-prev"
+                    data-prev
+                    aria-label="Fotografía anterior">
+
+              ❮
+
+            </button>
+
+
+
+            <!-- BOTÓN SIGUIENTE -->
+
+            <button type="button"
+                    class="gallery-btn gallery-next"
+                    data-next
+                    aria-label="Fotografía siguiente">
+
+              ❯
+
+            </button>
+
+
+
+            <!-- CONTADOR -->
+
+            <div class="gallery-counter">
+
+              <span data-current>
+                1
+              </span>
+
+              /
+
+              <span data-total>
+                16
+              </span>
+
+            </div>
+
+
+          </div>
+
+
+
+          <!-- INFORMACIÓN -->
+
+          <div class="property-body">
+
+            <span class="tag">
+              Venta
+            </span>
+
+            <h3>
+              Lote de 850 m²
+            </h3>
+
+            <p class="location">
+              📍 Riofrio Occidental
+            </p>
+
+            <div class="features">
+
+              <span>
+                📐 850 m²
+              </span>
+
+              <span>
+                🚗 Acceso vehicular
+              </span>
+
+              <span>
+                🏡 Conjunto cerrado con portada de ingreso
+              </span>
+
+            </div>
+
+
+            <div class="property-footer">
+
+  <strong>
+    $ 330.000.000
+  </strong>
+
+  <div class="property-media-buttons">
+
+    <!-- VIDEO YOUTUBE -->
+    <a href="https://youtube.com/shorts/bM_jqtWx9u4?feature=share"
+       class="media-btn youtube-btn"
+       target="_blank"
+       rel="noopener"
+       title="Ver video del Lote # 2">
+
+      <img src="assets/logo youtube.jpg"
+           alt="Ver video en YouTube">
+    </a>
+
+    <!-- TOUR VIRTUAL 360° -->
+    <!-- Cuando tengas el enlace, reemplaza # por la URL -->
+    <a href="#"
+       class="media-btn tour-btn"
+       title="Tour virtual 360°">
+
+      <img src="assets/logotourvirtual.jpg"
+           alt="Tour virtual 360°">
+           </a>
+      </div>
+</article>
+
+
+      <!-- SIN RESULTADOS -->
+
+      <p id="noResults"
+         class="no-results"
+         hidden>
+
+        No encontramos propiedades con esos filtros.
+        Prueba con otra búsqueda.
+
+      </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SERVICIOS
+    ====================================================== -->
+
+    <section id="servicios"
+             class="section services">
+
+
+      <div class="section-heading">
+
+        <div>
+
+          <p class="eyebrow">
+            LO QUE HACEMOS
+          </p>
+
+          <h2>
+            Servicios inmobiliarios
+          </h2>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="service-grid">
+
+
+        <article>
+
+          <div class="icon">
+            🏠
+          </div>
+
+          <h3>
+            Compra y venta
+          </h3>
+
+          <p>
+            Te ayudamos a encontrar oportunidades
+            y a comercializar tu inmueble.
+          </p>
+
+        </article>
+
+
+
+        <article>
+
+          <div class="icon">
+            📸
+          </div>
+
+          <h3>
+            Fotografía inmobiliaria
+          </h3>
+
+          <p>
+            Fotografía 360°, recorridos virtuales
+            y material visual para destacar cada propiedad.
+          </p>
+
+        </article>
+
+
+
+        <article>
+
+          <div class="icon">
+            📋
+          </div>
+
+          <h3>
+            Asesoría
+          </h3>
+
+          <p>
+            Orientación en documentación,
+            trámites y pasos de la operación.
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         NOSOTROS
+    ====================================================== -->
+
+    <section id="nosotros"
+             class="about">
+
+
+      <div>
+
+        <p class="eyebrow">
+          YORMAYN SIERRA INMOBILIARIA
+        </p>
+
+        <h2>
+          Un trato cercano para decisiones importantes.
+        </h2>
+
+      </div>
+
+
+      <p>
+
+        Nuestro objetivo es hacer que cada operación
+        inmobiliaria sea más sencilla, transparente y segura.
+
+      </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CONTACTO
+    ====================================================== -->
+
+    <section id="contacto"
+             class="contact">
+
+      <div>
+
+        <p class="eyebrow">
+          HABLEMOS
+        </p>
+
+        <h2>
+          ¿Quieres vender una propiedad o estás buscando una?
+        </h2>
+
+        <p>
+          Contactanos; nosotros te ayudamos.
+        </p>
+
+      </div>
+
+
+      <div class="contact-actions">
+
+
+        <a class="btn whatsapp"
+           href="https://wa.me/573176006453"
+           target="_blank"
+           rel="noopener">
+
+          WhatsApp
+
+        </a>
+
+
+        <a class="btn secondary"
+           href="mailto:yorsierra9@gmail.com">
+
+          Enviar correo
+
+        </a>
+
+     
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer>
+
+    <div class="footer-brand">
+      Yormayn Sierra Inmobiliaria
+    </div>
+
+    <div>
+      © <span id="year"></span>
+      Todos los derechos reservados.
+    </div>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script src="script.js"></script>
+
+</body>
+</html>
