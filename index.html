@@ -65,18 +65,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     
-  <!-- WHATSAPP FLOTANTE -->
-<a class="whatsapp-float"
-   href="https://wa.me/573176006453?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20informaci%C3%B3n"
-   target="_blank"
-   rel="noopener"
-   aria-label="Contactar por WhatsApp"
-   onclick="if(window.fbq) fbq('track', 'Contact');">
+  <!-- BOTONES FLOTANTES: LLAMAR + WHATSAPP -->
+<div class="floating-buttons">
 
-  <img src="assets/logo whatsapp.jpg"
-       alt="WhatsApp">
+  <a class="float-btn float-call"
+     href="tel:+573176006453"
+     aria-label="Llamar por teléfono"
+     onclick="if(window.fbq) fbq('track', 'Contact');">
 
-</a>
+    <span class="float-icon">📞</span>
+    <span class="float-label">Llamar</span>
+
+  </a>
+
+  <a class="float-btn float-whatsapp"
+     href="https://wa.me/573176006453?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20informaci%C3%B3n"
+     target="_blank"
+     rel="noopener"
+     aria-label="Contactar por WhatsApp"
+     onclick="if(window.fbq) fbq('track', 'Contact');">
+
+    <span class="float-icon">💬</span>
+    <span class="float-label">WhatsApp</span>
+
+  </a>
+
+</div>
 
   <!-- =====================================================
        BARRA SUPERIOR
@@ -214,10 +228,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             Ver propiedades
           </a>
 
-          <a class="btn secondary"
-             href="#contacto">
-            Quiero vender o arrendar
-          </a>
+         <a class="btn secondary"
+   href="https://wa.me/573176006453?text=Hola%20Yormayn%2C%20tengo%20una%20propiedad%20que%20quiero%20vender%20o%20arrendar.%20%C2%BFMe%20puedes%20asesorar%3F"
+   target="_blank"
+   rel="noopener"
+   onclick="if(window.fbq) fbq('track', 'Contact');">
+  Quiero vender o arrendar
+</a>
 
           <a class="btn whatsapp"
              href="https://wa.me/573176006453?text=Hola%2C%20vengo%20de%20la%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20propiedades"
