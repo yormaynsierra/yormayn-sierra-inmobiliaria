@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const count = document.getElementById("resultCount");
   const noResults = document.getElementById("noResults");
   const propiedades = document.getElementById("propiedades");
+  const clearButton = document.getElementById("clearFilters");
 
 
   function getPropertyCards() {
@@ -146,6 +147,54 @@ document.addEventListener("DOMContentLoaded", function () {
           block: "start"
         });
 
+      }
+
+    });
+
+  }
+
+
+  /* =====================================================
+     LIMPIAR FILTROS
+  ===================================================== */
+
+  if (clearButton && form) {
+
+    clearButton.addEventListener("click", function () {
+
+      const operationElement = document.getElementById("operation");
+      const typeElement = document.getElementById("type");
+      const locationElement = document.getElementById("location");
+
+      if (operationElement) operationElement.value = "";
+      if (typeElement) typeElement.value = "";
+      if (locationElement) locationElement.value = "";
+
+
+      /* Mostrar todas las tarjetas de nuevo */
+
+      const cards = getPropertyCards();
+
+      cards.forEach(function (card) {
+        card.hidden = false;
+      });
+
+
+      updatePropertyCount(cards.length);
+
+
+      if (noResults) {
+        noResults.hidden = true;
+      }
+
+
+      /* Llevar al usuario a la sección de propiedades */
+
+      if (propiedades) {
+        propiedades.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
       }
 
     });
