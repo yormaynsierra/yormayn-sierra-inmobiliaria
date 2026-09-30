@@ -50,32 +50,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const cards = getPropertyCards();
 
-      const operationElement =
-        document.getElementById("operation");
-
-      const typeElement =
-        document.getElementById("type");
-
-      const locationElement =
-        document.getElementById("location");
+      const operationElement = document.getElementById("operation");
+      const typeElement = document.getElementById("type");
+      const locationElement = document.getElementById("location");
 
 
-      const operation =
-        operationElement
-          ? operationElement.value.trim().toLowerCase()
-          : "";
+      const operation = operationElement
+        ? operationElement.value.trim().toLowerCase()
+        : "";
 
+      const type = typeElement
+        ? typeElement.value.trim().toLowerCase()
+        : "";
 
-      const type =
-        typeElement
-          ? typeElement.value.trim().toLowerCase()
-          : "";
-
-
-      const location =
-        locationElement
-          ? locationElement.value.trim().toLowerCase()
-          : "";
+      const location = locationElement
+        ? locationElement.value.trim().toLowerCase()
+        : "";
 
 
       let visible = 0;
@@ -84,69 +74,47 @@ document.addEventListener("DOMContentLoaded", function () {
       cards.forEach(function (card) {
 
         const cardOperation =
-          (card.dataset.operation || "")
-            .trim()
-            .toLowerCase();
-
+          (card.dataset.operation || "").trim().toLowerCase();
 
         const cardType =
-          (card.dataset.type || "")
-            .trim()
-            .toLowerCase();
-
+          (card.dataset.type || "").trim().toLowerCase();
 
         const cardLocation =
-          (card.dataset.location || "")
-            .trim()
-            .toLowerCase();
+          (card.dataset.location || "").trim().toLowerCase();
 
 
         const matchesOperation =
-          !operation ||
-          cardOperation === operation;
-
+          !operation || cardOperation === operation;
 
         const matchesType =
-          !type ||
-          cardType === type;
-
+          !type || cardType === type;
 
         const matchesLocation =
-          !location ||
-          cardLocation.includes(location);
+          !location || cardLocation.includes(location);
 
 
         const show =
-          matchesOperation &&
-          matchesType &&
-          matchesLocation;
+          matchesOperation && matchesType && matchesLocation;
 
 
         card.hidden = !show;
 
-
-        if (show) {
-          visible++;
-        }
+        if (show) visible++;
 
       });
 
 
       updatePropertyCount(visible);
 
-
       if (noResults) {
         noResults.hidden = visible !== 0;
       }
 
-
       if (propiedades) {
-
         propiedades.scrollIntoView({
           behavior: "smooth",
           block: "start"
         });
-
       }
 
     });
@@ -171,8 +139,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (locationElement) locationElement.value = "";
 
 
-      /* Mostrar todas las tarjetas de nuevo */
-
       const cards = getPropertyCards();
 
       cards.forEach(function (card) {
@@ -182,13 +148,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       updatePropertyCount(cards.length);
 
-
       if (noResults) {
         noResults.hidden = true;
       }
-
-
-      /* Llevar al usuario a la sección de propiedades */
 
       if (propiedades) {
         propiedades.scrollIntoView({
@@ -217,245 +179,359 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =====================================================
-     GALERÍAS
+     GALERÍAS (miniaturas dentro de las tarjetas)
   ===================================================== */
 
-  const galleries =
-    document.querySelectorAll("[data-gallery]");
+  const galleries = document.querySelectorAll("[data-gallery]");
 
 
   galleries.forEach(function (gallery) {
 
-    const photos =
-      [...gallery.querySelectorAll(".gallery-img")];
+    const photos = [...gallery.querySelectorAll(".gallery-img")];
+
+    const previousButton = gallery.querySelector("[data-prev]");
+    const nextButton = gallery.querySelector("[data-next]");
+    const currentNumber = gallery.querySelector("[data-current]");
+    const totalNumber = gallery.querySelector("[data-total]");
 
 
-    const previousButton =
-      gallery.querySelector("[data-prev]");
-
-
-    const nextButton =
-      gallery.querySelector("[data-next]");
-
-
-    const currentNumber =
-      gallery.querySelector("[data-current]");
-
-
-    const totalNumber =
-      gallery.querySelector("[data-total]");
-
-
-    if (!photos.length) {
-      return;
-    }
+    if (!photos.length) return;
 
 
     let currentIndex = 0;
 
 
-    /* =================================================
-       CARGAR IMAGEN
-    ================================================= */
-
     function loadPhoto(photo) {
 
       if (!photo) return;
 
+      if (photo.dataset.loaded === "true") return;
 
-      /*
-         Si ya tiene src real, no hacemos nada.
-      */
-
-      if (photo.dataset.loaded === "true") {
-        return;
-      }
-
-
-      const source =
-        photo.dataset.src;
-
+      const source = photo.dataset.src;
 
       if (!source) {
-
         photo.dataset.loaded = "true";
-
         return;
-
       }
 
-
-      /*
-         Crear una nueva imagen para comprobar
-         que realmente existe antes de mostrarla.
-      */
 
       const testImage = new Image();
 
-
       testImage.onload = function () {
-
         photo.src = source;
-
         photo.dataset.loaded = "true";
-
         photo.classList.remove("image-error");
-
       };
-
 
       testImage.onerror = function () {
-
         photo.dataset.loaded = "true";
-
         photo.classList.add("image-error");
-
-        console.warn(
-          "No se pudo cargar la imagen:",
-          source
-        );
-
+        console.warn("No se pudo cargar la imagen:", source);
       };
 
-
       testImage.src = source;
-
     }
 
-
-    /* =================================================
-       TOTAL AUTOMÁTICO
-    ================================================= */
 
     if (totalNumber) {
-
-      totalNumber.textContent =
-        photos.length;
-
+      totalNumber.textContent = photos.length;
     }
 
-
-    /* =================================================
-       MOSTRAR FOTO
-    ================================================= */
 
     function showPhoto(index) {
 
-      if (index < 0) {
-        index = photos.length - 1;
-      }
-
-
-      if (index >= photos.length) {
-        index = 0;
-      }
-
+      if (index < 0) index = photos.length - 1;
+      if (index >= photos.length) index = 0;
 
       currentIndex = index;
 
 
-      /*
-         Ocultar todas las imágenes.
-      */
-
       photos.forEach(function (photo) {
-
         photo.classList.remove("active");
-
       });
 
-
-      /*
-         Cargar la foto actual.
-      */
 
       loadPhoto(photos[currentIndex]);
 
 
-      /*
-         También precargar la siguiente
-         y la anterior para que el cambio
-         sea mucho más rápido.
-      */
-
-      const nextIndex =
-        (currentIndex + 1) % photos.length;
-
-
-      const previousIndex =
-        (currentIndex - 1 + photos.length) %
-        photos.length;
-
+      const nextIndex = (currentIndex + 1) % photos.length;
+      const previousIndex = (currentIndex - 1 + photos.length) % photos.length;
 
       loadPhoto(photos[nextIndex]);
-
       loadPhoto(photos[previousIndex]);
 
-
-      /*
-         Mostrar imagen actual.
-      */
 
       photos[currentIndex].classList.add("active");
 
 
-      /*
-         Actualizar contador.
-      */
-
       if (currentNumber) {
-
-        currentNumber.textContent =
-          currentIndex + 1;
-
+        currentNumber.textContent = currentIndex + 1;
       }
 
     }
 
 
-    /* =================================================
-       SIGUIENTE
-    ================================================= */
-
     if (nextButton) {
-
       nextButton.addEventListener("click", function (event) {
-
         event.preventDefault();
         event.stopPropagation();
-
         showPhoto(currentIndex + 1);
-
       });
-
     }
 
-
-    /* =================================================
-       ANTERIOR
-    ================================================= */
 
     if (previousButton) {
-
       previousButton.addEventListener("click", function (event) {
-
         event.preventDefault();
         event.stopPropagation();
-
         showPhoto(currentIndex - 1);
-
       });
-
     }
 
 
-    /* =================================================
-       INICIALIZAR
-    ================================================= */
+    /* =====================================================
+       ABRIR LIGHTBOX AL HACER CLIC EN LA FOTO
+    ===================================================== */
+
+    photos.forEach(function (photo, index) {
+
+      photo.addEventListener("click", function () {
+
+        /* Solo abrir si la foto está activa (visible) */
+
+        if (!photo.classList.contains("active")) return;
+
+        openLightbox(photos, index);
+
+      });
+
+    });
+
 
     showPhoto(0);
 
   });
 
+
+  /* =====================================================
+     LIGHTBOX — FUNCIONALIDAD
+  ===================================================== */
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = lightbox ? lightbox.querySelector(".lightbox-img") : null;
+  const lightboxCurrent = document.getElementById("lightboxCurrent");
+  const lightboxTotal = document.getElementById("lightboxTotal");
+  const lightboxClose = lightbox ? lightbox.querySelector(".lightbox-close") : null;
+  const lightboxPrev = lightbox ? lightbox.querySelector(".lightbox-prev") : null;
+  const lightboxNext = lightbox ? lightbox.querySelector(".lightbox-next") : null;
+
+
+  let lightboxPhotos = [];
+  let lightboxIndex = 0;
+
+
+  /* =================================================
+     ABRIR LIGHTBOX
+  ================================================= */
+
+  function openLightbox(photos, index) {
+
+    if (!lightbox || !lightboxImg) return;
+
+    lightboxPhotos = photos;
+    lightboxIndex = index;
+
+    updateLightbox();
+
+    lightbox.hidden = false;
+
+    /* Bloquear el scroll del body cuando el lightbox está abierto */
+
+    document.body.style.overflow = "hidden";
+  }
+
+
+  /* =================================================
+     CERRAR LIGHTBOX
+  ================================================= */
+
+  function closeLightbox() {
+
+    if (!lightbox) return;
+
+    lightbox.hidden = true;
+
+    /* Quitar el zoom si estaba activo */
+
+    if (lightboxImg) {
+      lightboxImg.classList.remove("zoomed");
+    }
+
+    /* Restaurar el scroll del body */
+
+    document.body.style.overflow = "";
+  }
+
+
+  /* =================================================
+     ACTUALIZAR CONTENIDO DEL LIGHTBOX
+  ================================================= */
+
+  function updateLightbox() {
+
+    if (!lightboxImg || !lightboxPhotos.length) return;
+
+    const photo = lightboxPhotos[lightboxIndex];
+
+    /* Usar el src real; si la foto tiene data-src, cargarla primero */
+
+    const realSrc = photo.src || photo.dataset.src;
+
+    lightboxImg.src = realSrc;
+
+    lightboxImg.alt = photo.alt || "Foto ampliada";
+
+
+    if (lightboxCurrent) {
+      lightboxCurrent.textContent = lightboxIndex + 1;
+    }
+
+    if (lightboxTotal) {
+      lightboxTotal.textContent = lightboxPhotos.length;
+    }
+
+
+    /* Quitar el zoom al cambiar de foto */
+
+    lightboxImg.classList.remove("zoomed");
+  }
+
+
+  /* =================================================
+     SIGUIENTE / ANTERIOR EN EL LIGHTBOX
+  ================================================= */
+
+  function lightboxNextPhoto() {
+
+    if (!lightboxPhotos.length) return;
+
+    lightboxIndex = (lightboxIndex + 1) % lightboxPhotos.length;
+
+    updateLightbox();
+  }
+
+
+  function lightboxPrevPhoto() {
+
+    if (!lightboxPhotos.length) return;
+
+    lightboxIndex = (lightboxIndex - 1 + lightboxPhotos.length) % lightboxPhotos.length;
+
+    updateLightbox();
+  }
+
+
+  /* =================================================
+     EVENTOS DEL LIGHTBOX
+  ================================================= */
+
+  if (lightboxClose) {
+    lightboxClose.addEventListener("click", closeLightbox);
+  }
+
+  if (lightboxNext) {
+    lightboxNext.addEventListener("click", function (event) {
+      event.stopPropagation();
+      lightboxNextPhoto();
+    });
+  }
+
+  if (lightboxPrev) {
+    lightboxPrev.addEventListener("click", function (event) {
+      event.stopPropagation();
+      lightboxPrevPhoto();
+    });
+  }
+
+
+  /* Clic fuera de la imagen → cerrar */
+
+  if (lightbox) {
+    lightbox.addEventListener("click", function (event) {
+
+      /* Si el clic es directamente sobre el fondo (no sobre la imagen ni botones) */
+
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+
+    });
+  }
+
+
+  /* Clic sobre la imagen → zoom toggle */
+
+  if (lightboxImg) {
+    lightboxImg.addEventListener("click", function (event) {
+      event.stopPropagation();
+      lightboxImg.classList.toggle("zoomed");
+    });
+  }
+
+
+  /* =================================================
+     TECLADO: ESC, ←, →
+  ================================================= */
+
+  document.addEventListener("keydown", function (event) {
+
+    if (!lightbox || lightbox.hidden) return;
+
+    if (event.key === "Escape") {
+      closeLightbox();
+    } else if (event.key === "ArrowRight") {
+      lightboxNextPhoto();
+    } else if (event.key === "ArrowLeft") {
+      lightboxPrevPhoto();
+    }
+
+  });
+
+
+  /* =================================================
+     SWIPE EN MÓVIL (deslizar dedo)
+  ================================================= */
+
+  if (lightbox) {
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+
+    lightbox.addEventListener("touchstart", function (event) {
+      touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+
+
+    lightbox.addEventListener("touchend", function (event) {
+      touchEndX = event.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+
+    function handleSwipe() {
+
+      const threshold = 50; /* pixeles mínimos para considerar swipe */
+
+      if (touchEndX < touchStartX - threshold) {
+        /* Swipe hacia la izquierda → siguiente */
+        lightboxNextPhoto();
+      } else if (touchEndX > touchStartX + threshold) {
+        /* Swipe hacia la derecha → anterior */
+        lightboxPrevPhoto();
+      }
+    }
+
+  }
 
 });
