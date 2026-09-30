@@ -34,9 +34,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta name="description"
-        content="Yormayn Sierra Inmobiliaria — compra, venta y arriendo de inmuebles.">
+        content="Yormayn Sierra Inmobiliaria — compra, venta y arriendo de inmuebles en Tabio, Riofrio y alrededores.">
 
-  <title>Yormayn Sierra Inmobiliaria</title>
+  <title>Yormayn Sierra Inmobiliaria — Compra, venta y arriendo</title>
+
+  <!-- Open Graph (para compartir en WhatsApp/Facebook) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yormaynsierra.github.io/yormayn-sierra-inmobiliaria/">
+  <meta property="og:title" content="Yormayn Sierra Inmobiliaria — Compra, venta y arriendo">
+  <meta property="og:description" content="Lotes, casas y fincas en Tabio, Riofrio y alrededores. Asesoría cercana y personalizada.">
+  <meta property="og:image" content="https://yormaynsierra.github.io/yormayn-sierra-inmobiliaria/assets/logo.jpg">
+  <meta property="og:locale" content="es_CO">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yormayn Sierra Inmobiliaria">
+  <meta name="twitter:description" content="Lotes, casas y fincas en Tabio y Riofrio.">
+  <meta name="twitter:image" content="https://yormaynsierra.github.io/yormayn-sierra-inmobiliaria/assets/logo.jpg">
+
+  <!-- Preload del logo para carga más rápida -->
+  <link rel="preload" as="image" href="assets/logo.jpg">
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -50,10 +67,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
   <!-- WHATSAPP FLOTANTE -->
 <a class="whatsapp-float"
-   href="https://wa.me/573176006453"
+   href="https://wa.me/573176006453?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20informaci%C3%B3n"
    target="_blank"
    rel="noopener"
-   aria-label="Contactar por WhatsApp">
+   aria-label="Contactar por WhatsApp"
+   onclick="if(window.fbq) fbq('track', 'Contact');">
 
   <img src="assets/logo whatsapp.jpg"
        alt="WhatsApp">
@@ -201,6 +219,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             Quiero vender o arrendar
           </a>
 
+          <a class="btn whatsapp"
+             href="https://wa.me/573176006453?text=Hola%2C%20vengo%20de%20la%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20propiedades"
+             target="_blank"
+             rel="noopener"
+             onclick="if(window.fbq) fbq('track', 'Contact');">
+            💬 Hablar por WhatsApp
+          </a>
+
         </div>
 
       </div>
@@ -248,7 +274,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <form id="propertySearch"
             class="search-grid">
 
-        <select id="operation">
+        <select id="operation" aria-label="Tipo de operación">
 
           <option value="">
             Operación
@@ -265,7 +291,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </select>
 
 
-        <select id="type">
+        <select id="type" aria-label="Tipo de inmueble">
 
           <option value="">
             Tipo de inmueble
@@ -292,13 +318,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <input id="location"
                type="text"
-               placeholder="Ciudad o zona">
+               placeholder="Ciudad o zona"
+               aria-label="Ciudad o zona">
 
 
         <button class="btn primary"
                 type="submit">
 
           Buscar
+
+        </button>
+
+        <button class="btn-clear"
+                type="button"
+                id="clearFilters"
+                title="Limpiar filtros">
+
+          ✕ Limpiar
 
         </button>
 
@@ -556,6 +592,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
             <div class="property-footer">
+
   <strong>
     $ 330.000.000
   </strong>
@@ -567,25 +604,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        class="media-btn youtube-btn"
        target="_blank"
        rel="noopener"
-       title="Ver video del Lote #2">
+       title="Ver video del Lote">
 
       <img src="assets/logo youtube.jpg"
            alt="Ver video en YouTube">
     </a>
 
     <!-- TOUR VIRTUAL 360° -->
-    <!-- Cuando tengas el enlace, reemplaza # por la URL -->
     <a href="#"
        class="media-btn tour-btn"
        title="Tour virtual 360°">
 
       <img src="assets/logotourvirtual.jpg"
            alt="Tour virtual 360°">
-           </a>
+    </a>
 
   </div> <!-- property-media-buttons -->
 
 </div> <!-- property-footer -->
+
+<!-- BOTÓN WHATSAPP DE ESTA PROPIEDAD -->
+<a class="btn-whatsapp-propiedad"
+   href="https://wa.me/573176006453?text=Hola%2C%20me%20interesa%20el%20Lote%20de%20850%20m%C2%B2%20en%20Riofrio%20Occidental.%20%C2%BFMe%20puedes%20dar%20m%C3%A1s%20informaci%C3%B3n%3F"
+   target="_blank"
+   rel="noopener"
+   onclick="if(window.fbq) fbq('track', 'Contact');">
+  💬 Preguntar por WhatsApp
+</a>
 
 </div> <!-- property-body -->
 
@@ -799,18 +844,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
 
     <!-- TOUR VIRTUAL 360° -->
-    <!-- Cuando tengas el enlace, reemplaza # por la URL -->
     <a href="https://yormaynsierra.github.io/VENTA-LOTE-PLANO-600-MTS---Riofrio-Oriental-Sector-San-Isidro---TABIO/"
        class="media-btn tour-btn"
        title="Tour virtual 360°">
 
       <img src="assets/logotourvirtual.jpg"
            alt="Tour virtual 360°">
-          </a>
+    </a>
 
   </div> <!-- property-media-buttons -->
 
 </div> <!-- property-footer -->
+
+<!-- BOTÓN WHATSAPP DE ESTA PROPIEDAD -->
+<a class="btn-whatsapp-propiedad"
+   href="https://wa.me/573176006453?text=Hola%2C%20me%20interesa%20el%20Lote%20de%20600%20m%C2%B2%20en%20Riofrio%20Oriental.%20%C2%BFMe%20puedes%20dar%20m%C3%A1s%20informaci%C3%B3n%3F"
+   target="_blank"
+   rel="noopener"
+   onclick="if(window.fbq) fbq('track', 'Contact');">
+  💬 Preguntar por WhatsApp
+</a>
 
 </div> <!-- property-body -->
 
@@ -1213,30 +1266,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="property-media-buttons">
 
     <!-- VIDEO YOUTUBE -->
-    <!-- Cuando tengas el enlace, reemplaza # por la URL -->
     <a href="#"
        class="media-btn youtube-btn"
        target="_blank"
        rel="noopener"
-       title="Ver video del Lote #2">
+       title="Ver video de la casa">
 
       <img src="assets/logo youtube.jpg"
            alt="Ver video en YouTube">
     </a>
 
     <!-- TOUR VIRTUAL 360° -->
-    <!-- Cuando tengas el enlace, reemplaza # por la URL -->
     <a href="https://yormaynsierra.github.io/ARRIENDO-CASA-RURAL-de-2-pisos-110Mts-Terreno-425mts---TABIO/"
        class="media-btn tour-btn"
        title="Tour virtual 360°">
 
       <img src="assets/logotourvirtual.jpg"
            alt="Tour virtual 360°">
-           </a>
+    </a>
 
   </div> <!-- property-media-buttons -->
 
 </div> <!-- property-footer -->
+
+<!-- BOTÓN WHATSAPP DE ESTA PROPIEDAD -->
+<a class="btn-whatsapp-propiedad"
+   href="https://wa.me/573176006453?text=Hola%2C%20me%20interesa%20la%20Casa%20de%202%20pisos%20(110%20m%C2%B2)%20con%20terreno%20de%20945%20m%C2%B2%20en%20Riofrio%20Oriental.%20%C2%BFMe%20puedes%20dar%20m%C3%A1s%20informaci%C3%B3n%3F"
+   target="_blank"
+   rel="noopener"
+   onclick="if(window.fbq) fbq('track', 'Contact');">
+  💬 Preguntar por WhatsApp
+</a>
 
 </div> <!-- property-body -->
 
@@ -1446,25 +1506,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        class="media-btn youtube-btn"
        target="_blank"
        rel="noopener"
-       title="Ver video del Lote # 2">
+       title="Ver video del Lote">
 
       <img src="assets/logo youtube.jpg"
            alt="Ver video en YouTube">
     </a>
 
     <!-- TOUR VIRTUAL 360° -->
-    <!-- Cuando tengas el enlace, reemplaza # por la URL -->
     <a href="#"
        class="media-btn tour-btn"
        title="Tour virtual 360°">
 
       <img src="assets/logotourvirtual.jpg"
            alt="Tour virtual 360°">
-           </a>
+    </a>
 
   </div> <!-- property-media-buttons -->
 
 </div> <!-- property-footer -->
+
+<!-- BOTÓN WHATSAPP DE ESTA PROPIEDAD -->
+<a class="btn-whatsapp-propiedad"
+   href="https://wa.me/573176006453?text=Hola%2C%20me%20interesa%20el%20Lote%20de%20850%20m%C2%B2%20en%20conjunto%20cerrado%20en%20Riofrio%20Occidental.%20%C2%BFMe%20puedes%20dar%20m%C3%A1s%20informaci%C3%B3n%3F"
+   target="_blank"
+   rel="noopener"
+   onclick="if(window.fbq) fbq('track', 'Contact');">
+  💬 Preguntar por WhatsApp
+</a>
 
 </div> <!-- property-body -->
 
@@ -1637,9 +1705,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
         <a class="btn whatsapp"
-           href="https://wa.me/573176006453"
+           href="https://wa.me/573176006453?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20propiedad"
            target="_blank"
-           rel="noopener">
+           rel="noopener"
+           onclick="if(window.fbq) fbq('track', 'Contact');">
 
           WhatsApp
 
