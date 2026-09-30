@@ -1575,3 +1575,89 @@ footer {
   width: 100%;
   margin-top: 4px;
 }
+
+/* =========================================================
+   BOTONES FLOTANTES: LLAMAR + WHATSAPP
+========================================================= */
+
+.floating-buttons {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.float-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  border-radius: 999px;
+
+  color: #fff !important;
+  font-weight: 800;
+  font-size: .9rem;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.float-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .30);
+}
+
+.float-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.float-call {
+  background: var(--navy);
+}
+
+.float-whatsapp {
+  background: #25D366;
+}
+
+/* Ocultar el viejo whatsapp flotante (por si acaso) */
+.whatsapp-float {
+  display: none !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE: EN CELULAR LOS BOTONES SE VUELVEN SOLO ÍCONO
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .floating-buttons {
+    right: 15px;
+    bottom: 15px;
+    gap: 10px;
+  }
+
+  .float-btn {
+    padding: 12px;
+    width: 52px;
+    height: 52px;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .float-label {
+    display: none;
+  }
+
+  .float-icon {
+    font-size: 1.4rem;
+  }
+}
