@@ -1380,5 +1380,99 @@ footer {
     width: 38px;
     height: 38px;
   }
+/* =========================================================
+   BOTÓN WHATSAPP EN CADA PROPIEDAD
+========================================================= */
 
+.btn-whatsapp-propiedad {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  width: 100%;
+
+  margin-top: 12px;
+  padding: 10px 16px;
+
+  background: #25D366;
+  color: #fff !important;
+
+  border-radius: 999px;
+
+  font-weight: 800;
+  font-size: .9rem;
+
+  text-align: center;
+
+  transition: background .2s ease, transform .2s ease;
+}
+
+.btn-whatsapp-propiedad:hover {
+  background: #1da851;
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   BOTÓN LIMPIAR FILTROS
+========================================================= */
+
+.btn-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 16px;
+
+  background: #fff;
+  color: var(--muted);
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  font: inherit;
+  font-weight: 700;
+  font-size: .85rem;
+
+  cursor: pointer;
+
+  transition: background .2s ease, color .2s ease;
+}
+
+.btn-clear:hover {
+  background: #f0f2f8;
+  color: var(--navy);
+}
+
+
+/* =========================================================
+   AJUSTE DEL BUSCADOR PARA 5 COLUMNAS (con botón limpiar)
+========================================================= */
+
+.search-grid {
+  grid-template-columns:
+    1fr
+    1fr
+    1.2fr
+    auto
+    auto;
+}
+
+
+/* =========================================================
+   AJUSTE RESPONSIVE PARA EL NUEVO BOTÓN LIMPIAR
+========================================================= */
+
+@media (max-width: 900px) {
+  .search-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .search-grid {
+    grid-template-columns: 1fr;
+  }
+}
 }
