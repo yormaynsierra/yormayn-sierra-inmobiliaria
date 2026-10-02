@@ -72,4 +72,173 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="float-icon">📞</span>
       <span class="float-label">Llamar</span>
     </a>
-    <a class="float-btn float-whatsapp" href="https://wa.me/573176006453?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina
+    <a class="float-btn float-whatsapp" href="https://wa.me/573176006453?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20informaci%C3%B3n" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp" onclick="if(window.fbq) fbq('track', 'Contact');">
+      <span class="float-icon">💬</span>
+      <span class="float-label">WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- BARRA SUPERIOR -->
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Yormayn Sierra Inmobiliaria">
+      <img src="assets/logo.jpg" alt="Logo Yormayn Sierra Inmobiliaria">
+      <span>Yormayn Sierra<br><small>Inmobiliaria</small></span>
+    </a>
+    <nav>
+      <a href="#propiedades">Propiedades</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a class="nav-cta" href="#contacto">Contactar</a>
+    </nav>
+  </header>
+
+  <!-- REDES SOCIALES -->
+  <section id="topBar">
+    <div class="container-fluid">
+      <div class="area-bar auto_margin">
+        <div class="redes">
+          <ul class="follow">
+            <li><a href="https://www.facebook.com/profile.php?id=100088875960070" target="_blank" rel="noopener" title="Facebook"><img src="assets/logo facebook.jpg" alt="Facebook"><span>Facebook</span></a></li>
+            <li><a href="https://www.instagram.com/yormaynsierrainmobiliaria/" target="_blank" rel="noopener" title="Instagram"><img src="assets/logo instagram.jpg" alt="Instagram"><span>Instagram</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="google-lang"><div id="google_translate_element"></div></div>
+
+  <main id="inicio">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"></p>
+        <h1>Encuentra el lugar donde empieza tu próxima historia.</h1>
+        <p class="hero-text">Te acompañamos en la compra, venta y arriendo de inmuebles con atención cercana y asesoría durante todo el proceso.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#propiedades">Ver propiedades</a>
+          <a class="btn secondary" href="https://wa.me/573176006453?text=Hola%20Yormayn%2C%20tengo%20una%20propiedad%20que%20quiero%20vender%20o%20arrendar.%20%C2%BFMe%20puedes%20asesorar%3F" target="_blank" rel="noopener" onclick="if(window.fbq) fbq('track', 'Contact');">Quiero vender o arrendar</a>
+          <a class="btn whatsapp" href="https://wa.me/573176006453?text=Hola%2C%20vengo%20de%20la%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20propiedades" target="_blank" rel="noopener" onclick="if(window.fbq) fbq('track', 'Contact');">💬 Hablar por WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-logo-wrap"><img src="assets/logo.jpg" alt="Yormayn Sierra Inmobiliaria"></div>
+        <p>Asesoría inmobiliaria con confianza, claridad y acompañamiento.</p>
+      </div>
+    </section>
+
+    <!-- BUSCADOR -->
+    <section class="search-section">
+      <div>
+        <p class="eyebrow">BUSCA TU INMUEBLE</p>
+        <h2>¿Qué estás buscando?</h2>
+      </div>
+      <form id="propertySearch" class="search-grid">
+        <select id="operation" aria-label="Tipo de operación">
+          <option value="">Operación</option>
+          <option value="Comprar">Comprar</option>
+          <option value="Arrendar">Arrendar</option>
+        </select>
+        <select id="type" aria-label="Tipo de inmueble">
+          <option value="">Tipo de inmueble</option>
+          <option value="Casa">Casa</option>
+          <option value="Apartamento">Apartamento</option>
+          <option value="Apartaestudio">Apartaestudio</option>
+          <option value="Lote">Lote</option>
+          <option value="Finca">Finca</option>
+          <option value="Predio">Predio</option>
+        </select>
+        <input id="location" type="text" placeholder="Ciudad o zona" aria-label="Ciudad o zona">
+        <button class="btn primary" type="submit">Buscar</button>
+        <button class="btn-clear" type="button" id="clearFilters" title="Limpiar filtros">✕ Limpiar</button>
+      </form>
+    </section>
+
+    <!-- PROPIEDADES (se llenan dinámicamente desde propiedades.json) -->
+    <section id="propiedades" class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">INMUEBLES DESTACADOS</p>
+          <h2>INMUEBLES</h2>
+        </div>
+        <span id="resultCount" class="result-count"></span>
+      </div>
+
+      <div id="propertyGrid" class="property-grid"></div>
+
+      <p id="noResults" class="no-results" hidden>No encontramos propiedades con esos filtros. Prueba con otra búsqueda.</p>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section services">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">LO QUE HACEMOS</p>
+          <h2>Servicios inmobiliarios</h2>
+        </div>
+      </div>
+      <div class="service-grid">
+        <article>
+          <div class="icon">🏠</div>
+          <h3>Compra y venta</h3>
+          <p>Te ayudamos a encontrar oportunidades y a comercializar tu inmueble.</p>
+        </article>
+        <article>
+          <div class="icon">📸</div>
+          <h3>Fotografía inmobiliaria</h3>
+          <p>Fotografía 360°, recorridos virtuales y material visual para destacar cada propiedad.</p>
+        </article>
+        <article>
+          <div class="icon">📋</div>
+          <h3>Asesoría</h3>
+          <p>Orientación en documentación, trámites y pasos de la operación.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros" class="about">
+      <div>
+        <p class="eyebrow">YORMAYN SIERRA INMOBILIARIA</p>
+        <h2>Un trato cercano para decisiones importantes.</h2>
+      </div>
+      <p>Nuestro objetivo es hacer que cada operación inmobiliaria sea más sencilla, transparente y segura.</p>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contact">
+      <div>
+        <p class="eyebrow">HABLEMOS</p>
+        <h2>¿Quieres vender una propiedad o estás buscando una?</h2>
+        <p>Contactanos; nosotros te ayudamos.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="btn whatsapp" href="https://wa.me/573176006453?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20propiedad" target="_blank" rel="noopener" onclick="if(window.fbq) fbq('track', 'Contact');">WhatsApp</a>
+        <a class="btn secondary" href="mailto:yorsierra9@gmail.com">Enviar correo</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">Yormayn Sierra Inmobiliaria</div>
+    <div>© <span id="year"></span> Todos los derechos reservados.</div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" hidden>
+    <button class="lightbox-close" aria-label="Cerrar">✕</button>
+    <button class="lightbox-btn lightbox-prev" aria-label="Foto anterior">❮</button>
+    <img class="lightbox-img" src="" alt="Foto ampliada">
+    <button class="lightbox-btn lightbox-next" aria-label="Foto siguiente">❯</button>
+    <div class="lightbox-counter">
+      <span id="lightboxCurrent">1</span> / <span id="lightboxTotal">1</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
